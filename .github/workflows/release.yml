@@ -1,0 +1,18 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs: 
+  release:
+    runs-on: [ubuntu-latest]
+
+    steps: 
+     - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+    - name: Trigger deploy wed hook
+        run: curl -X POST -d {} "https://webhooks.amplify.us-east-1.amazonaws.com/prod/webhooks?id=${{ secrets.AWS_ID }}&token=${{ secrets.AWS_TOKEN }}&operation=startbuild" -H "Content-Type:application/json"

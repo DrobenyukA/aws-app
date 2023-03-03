@@ -6,11 +6,12 @@ function App() {
   useEffect(() => {
     document.title = "AWS React App";
   }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello from react aws app.</p>
+        <p>Hello from react aws app deployed by github action.</p>
         <a
           className="App-link"
           href="https://reactjs.org"
